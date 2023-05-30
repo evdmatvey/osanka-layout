@@ -729,6 +729,69 @@ a {
   }
 }
 
+// start
+
+.start {
+  padding-top: 100px;
+
+  &__title {
+    margin-bottom: 15px;
+  }
+
+  &__subtitle {
+    margin-bottom: 75px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  &__step {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+
+    &:nth-child(even) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    &-image {
+      border-radius: 10px;
+    }
+
+    h3 {
+      margin-bottom: 30px;
+      position: relative;
+      font-weight: 700;
+      font-size: 100px;
+      line-height: 1;
+      color: var(--yellow);
+
+      &::after {
+        content: '';
+        width: 400px;
+        height: 2px;
+        display: block;
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--yellow);
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+}
+
 // animations
 @keyframes showMobileMenu {
   from {
