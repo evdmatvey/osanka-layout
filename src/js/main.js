@@ -17,5 +17,5 @@ function hideMobileNavigationHandler() {
   setTimeout(() => {
     mobileNavigation.classList.remove('open');
     document.body.classList.remove('navigation-open');
-  }, 200);
+  }, 100);
 }
