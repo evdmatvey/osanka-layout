@@ -2369,6 +2369,54 @@ a {
 // better
 
 .better {
+  padding: 115px 0;
+  background: url(../img/better-bg.jpg) no-repeat center / cover;
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__heading {
+    max-width: 500px;
+    margin-bottom: 150px;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+  }
+
+  &__item {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(var(--yellow-light) 0deg 240deg, var(--pink-dark) 240deg 360deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: donutChart 4s infinite;
+
+    &-inner {
+      width: 125px;
+      height: 125px;
+      padding: 20px;
+      border-radius: 50%;
+      background: var(--pink);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      line-height: 1.2;
+      color: var(--white);
+      text-align: center;
+
+      span {
+        font-size: 32px;
+        line-height: 1;
+      }
+    }
+  }
 }
 
 // animations
@@ -2452,5 +2500,108 @@ a {
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes donutChart {
+  1% {
+    background: conic-gradient(var(--yellow-light) 0deg 1deg, var(--pink-dark) 1deg 360deg);
+  }
+
+  2% {
+    background: conic-gradient(var(--yellow-light) 0deg 10deg, var(--pink-dark) 10deg 360deg);
+  }
+
+  3% {
+    background: conic-gradient(var(--yellow-light) 0deg 20deg, var(--pink-dark) 20deg 360deg);
+  }
+
+  4% {
+    background: conic-gradient(var(--yellow-light) 0deg 30deg, var(--pink-dark) 30deg 360deg);
+  }
+
+  5% {
+    background: conic-gradient(var(--yellow-light) 0deg 40deg, var(--pink-dark) 40deg 360deg);
+  }
+
+  6% {
+    background: conic-gradient(var(--yellow-light) 0deg 50deg, var(--pink-dark) 50deg 360deg);
+  }
+
+  7% {
+    background: conic-gradient(var(--yellow-light) 0deg 60deg, var(--pink-dark) 60deg 360deg);
+  }
+
+  8% {
+    background: conic-gradient(var(--yellow-light) 0deg 70deg, var(--pink-dark) 70deg 360deg);
+  }
+
+  9% {
+    background: conic-gradient(var(--yellow-light) 0deg 80deg, var(--pink-dark) 80deg 360deg);
+  }
+
+  10% {
+    background: conic-gradient(var(--yellow-light) 0deg 90deg, var(--pink-dark) 90deg 360deg);
+  }
+
+  11% {
+    background: conic-gradient(var(--yellow-light) 0deg 100deg, var(--pink-dark) 100deg 360deg);
+  }
+
+  12% {
+    background: conic-gradient(var(--yellow-light) 0deg 110deg, var(--pink-dark) 110deg 360deg);
+  }
+
+  13% {
+    background: conic-gradient(var(--yellow-light) 0deg 120deg, var(--pink-dark) 120deg 360deg);
+  }
+
+  14% {
+    background: conic-gradient(var(--yellow-light) 0deg 130deg, var(--pink-dark) 130deg 360deg);
+  }
+
+  15% {
+    background: conic-gradient(var(--yellow-light) 0deg 140deg, var(--pink-dark) 140deg 360deg);
+  }
+
+  16% {
+    background: conic-gradient(var(--yellow-light) 0deg 150deg, var(--pink-dark) 70deg 150deg);
+  }
+
+  17% {
+    background: conic-gradient(var(--yellow-light) 0deg 160deg, var(--pink-dark) 160deg 360deg);
+  }
+
+  18% {
+    background: conic-gradient(var(--yellow-light) 0deg 170deg, var(--pink-dark) 170deg 360deg);
+  }
+
+  19% {
+    background: conic-gradient(var(--yellow-light) 0deg 180deg, var(--pink-dark) 180deg 360deg);
+  }
+
+  20% {
+    background: conic-gradient(var(--yellow-light) 0deg 190deg, var(--pink-dark) 190deg 360deg);
+  }
+
+  21% {
+    background: conic-gradient(var(--yellow-light) 0deg 200deg, var(--pink-dark) 200deg 360deg);
+  }
+
+  22% {
+    background: conic-gradient(var(--yellow-light) 0deg 210deg, var(--pink-dark) 210deg 360deg);
+  }
+
+  23% {
+    background: conic-gradient(var(--yellow-light) 0deg 220deg, var(--pink-dark) 220deg 360deg);
+  }
+
+  24% {
+    background: conic-gradient(var(--yellow-light) 0deg 230deg, var(--pink-dark) 230deg 360deg);
+  }
+
+  25%,
+  100% {
+    background: conic-gradient(var(--yellow-light) 0deg 240deg, var(--pink-dark) 240deg 360deg);
   }
 }
