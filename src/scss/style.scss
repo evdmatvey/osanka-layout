@@ -137,6 +137,10 @@ a {
     font-weight: 400;
     font-size: 24px;
     line-height: 1.25;
+
+    &--light {
+      color: var(--white);
+    }
   }
 
   &__form {
@@ -2112,6 +2116,46 @@ a {
           font-size: 16px;
         }
       }
+    }
+  }
+}
+
+// family
+.family {
+  padding: 120px 0 200px 0;
+  background: url(../img/family-bg.jpg) no-repeat center / cover;
+
+  &__heading {
+    max-width: 450px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__subtitle {
+    margin-bottom: 100px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    p {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.6;
+      text-align: center;
+      color: var(--white);
+      text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
     }
   }
 }
