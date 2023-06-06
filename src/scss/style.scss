@@ -28,6 +28,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -100,6 +101,33 @@ a {
       .three {
         width: 40px;
         height: 40px;
+      }
+
+      @media screen and (max-width: 1280px) {
+        & {
+          left: -5px;
+        }
+
+        .one {
+          width: 80px;
+          height: 80px;
+        }
+
+        .two {
+          width: 50px;
+          height: 50px;
+        }
+
+        .three {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      @media screen and (max-width: 750px) {
+        & {
+          display: none;
+        }
       }
     }
   }
@@ -1646,6 +1674,10 @@ a {
       align-items: flex-end;
       gap: 50px;
 
+      .line {
+        display: none;
+      }
+
       button {
         width: 150px;
         height: 150px;
@@ -1737,6 +1769,226 @@ a {
       }
     }
   }
+
+  @media screen and (max-width: 1050px) {
+    &__tabs-controls {
+      width: 205px;
+      button {
+        width: 100px;
+        height: 100px;
+
+        span {
+          font-size: 50px;
+        }
+
+        &.active {
+          &::before {
+            content: '';
+            width: 150px;
+            height: 150px;
+          }
+
+          &::after {
+            content: '';
+            width: 200px;
+            height: 200px;
+          }
+        }
+      }
+    }
+
+    &__tabs-content {
+      max-width: 600px;
+
+      p {
+        margin-top: 200px;
+        gap: 20px;
+        font-size: 20px;
+      }
+
+      img {
+        height: 590px;
+        width: 200px;
+      }
+    }
+
+    &__circles {
+      &-one {
+        width: 600px;
+        height: 600px;
+      }
+
+      &-two {
+        width: 400px;
+        height: 400px;
+      }
+
+      &-three {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 950px) {
+    &__tabs-controls {
+      width: 160px;
+      gap: 30px;
+      button {
+        width: 80px;
+        height: 80px;
+        font-size: 16px;
+
+        span {
+          font-size: 32px;
+        }
+
+        &.active {
+          &::before {
+            content: '';
+            width: 120px;
+            height: 120px;
+          }
+
+          &::after {
+            content: '';
+            width: 160px;
+            height: 160px;
+          }
+        }
+      }
+    }
+
+    &__tabs-content {
+      max-width: 500px;
+      gap: 20px;
+
+      p {
+        margin-top: 120px;
+        gap: 15px;
+        font-size: 18px;
+      }
+
+      img {
+        height: 490px;
+        width: 160px;
+      }
+    }
+
+    &__circles {
+      &-one {
+        width: 500px;
+        height: 500px;
+      }
+
+      &-two {
+        width: 300px;
+        height: 300px;
+      }
+
+      &-three {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    & {
+      max-height: 700px;
+      height: 100vh;
+    }
+
+    &__circles {
+      display: none;
+    }
+
+    &__tabs {
+      margin-top: 20px;
+      flex-direction: column;
+
+      &-controls {
+        width: auto;
+        margin: 0 auto 20px auto;
+        gap: 60px;
+        flex-direction: row;
+        position: relative;
+
+        .line {
+          width: 300px;
+          height: 2px;
+          background: linear-gradient(90deg, var(--yellow) 8.52%, var(--white) 106.87%);
+          position: absolute;
+          display: block;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        button::before,
+        button::after {
+          display: none;
+        }
+      }
+
+      &-content {
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+
+        p {
+          width: 300px;
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+          font-size: 16px;
+          gap: 15px;
+          animation: opacity 1.2s;
+
+          svg {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        img {
+          height: 70vh;
+          width: auto;
+          animation: opacity 1s;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    &__tabs-controls {
+      width: 300px;
+
+      button {
+        width: 60px;
+        height: 60px;
+        font-size: 10px;
+
+        span {
+          font-size: 24px;
+        }
+      }
+    }
+
+    &__tabs-content {
+      p {
+        bottom: 40px;
+      }
+    }
+  }
 }
 
 // animations
@@ -1810,5 +2062,15 @@ a {
 
   to {
     transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
