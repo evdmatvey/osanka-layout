@@ -1991,6 +1991,50 @@ a {
   }
 }
 
+// offer
+.offer {
+  padding: 80px 0;
+  background: url(../img/offer-bg.jpg) no-repeat center / cover;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 75px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__subtitle {
+    margin-bottom: 60px;
+  }
+
+  &__text img {
+    margin-left: 150px;
+  }
+
+  &__form {
+    width: 500px;
+    padding: 55px;
+    border-radius: 0 0 10px 10px;
+
+    &-title {
+      padding: 20px 30px;
+      background: var(--yellow);
+      text-align: center;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 1.3;
+      border-radius: 10px 10px 0 0;
+
+      span {
+        font-size: 34px;
+      }
+    }
+  }
+}
+
 // animations
 @keyframes showMobileMenu {
   from {
