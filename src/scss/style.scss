@@ -2275,6 +2275,100 @@ a {
       line-height: 1.4;
     }
   }
+
+  @media screen and (max-width: 1150px) {
+    & img {
+      width: 500px;
+      height: auto;
+    }
+
+    &__text p {
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 1050px) {
+    & {
+      padding: 60px 0;
+    }
+
+    &__wrapper {
+      gap: 20px;
+    }
+
+    & img {
+      width: 420px;
+      height: auto;
+    }
+
+    &__text p {
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 950px) {
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    & img {
+      width: 320px;
+      height: auto;
+    }
+
+    &__text p {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    & {
+      position: relative;
+
+      &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    & img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      object-fit: cover;
+    }
+
+    &__text {
+      z-index: 1;
+      color: var(--white);
+
+      .default__title {
+        color: var(--white);
+      }
+    }
+
+    &__text p {
+      font-size: 18px;
+    }
+
+    &__text p {
+      font-size: 16px;
+    }
+  }
+}
+
+// better
+
+.better {
 }
 
 // animations
