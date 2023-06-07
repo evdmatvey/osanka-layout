@@ -2579,7 +2579,7 @@ a {
 
   @media screen and (max-width: 750px) {
     & {
-      padding: 40px 0 50px 0;
+      padding: 40px 0 50px;
     }
 
     &__slider.swiper,
@@ -2593,6 +2593,57 @@ a {
 
     &__item-text {
       height: auto;
+    }
+  }
+}
+
+.benefits {
+  padding: 80px 0;
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  &__item {
+    width: 370px;
+    padding: 50px 30px 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.11);
+
+    &-title {
+      margin-bottom: 20px;
+      padding-bottom: 22px;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.1;
+      position: relative;
+
+      img {
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        content: '';
+        width: 50px;
+        height: 3px;
+        background: var(--yellow);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    &-text {
+      line-height: 1.5;
     }
   }
 }
