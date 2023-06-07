@@ -2576,6 +2576,25 @@ a {
       }
     }
   }
+
+  @media screen and (max-width: 750px) {
+    & {
+      padding: 40px 0 50px 0;
+    }
+
+    &__slider.swiper,
+    &__slider {
+      padding: 0;
+      &-prev,
+      &-next {
+        display: none;
+      }
+    }
+
+    &__item-text {
+      height: auto;
+    }
+  }
 }
 
 // animations
