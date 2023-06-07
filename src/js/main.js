@@ -40,7 +40,6 @@ const swiper = new Swiper('.stop__slider', {
 });
 
 // progress tabs
-
 const progressTabsControls = document.querySelectorAll('.progress__tabs-controls button');
 const progressTabsContent = document.querySelector('.progress__tabs-content');
 const PROGRESS_TABS_INFO = [
@@ -92,3 +91,22 @@ function changeProgressContentHandler(index) {
                 ${PROGRESS_TABS_INFO[index].text}
               </p>`;
 }
+
+// reviews slider
+const reviewsSlider = new Swiper('.reviews__slider', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 50,
+  pagination: {
+    el: '.reviews__slider-pagination.swiper-pagination',
+    clickable: true,
+    renderBullet: function () {
+      return `<span class="reviews__slider-bullet swiper-pagination-bullet"></span>`;
+    },
+  },
+  navigation: {
+    nextEl: '.reviews__slider-next',
+    prevEl: '.reviews__slider-prev',
+  },
+});
