@@ -2646,6 +2646,39 @@ a {
       line-height: 1.5;
     }
   }
+
+  @media screen and (max-width: 1200px) {
+    &__wrapper {
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    &__item {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    & {
+      padding: 40px 0;
+    }
+
+    &__item {
+      width: 300px;
+      padding: 20px;
+
+      &-title {
+        font-size: 18px;
+      }
+
+      &-text {
+        font-size: 14px;
+      }
+    }
+  }
 }
 
 // animations
