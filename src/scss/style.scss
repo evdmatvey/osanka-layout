@@ -2417,6 +2417,60 @@ a {
       }
     }
   }
+
+  @media screen and (max-width: 850px) {
+    &__item {
+      width: 110px;
+      height: 110px;
+
+      &-inner {
+        width: 98px;
+        height: 98px;
+        font-size: 14px;
+
+        span {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    & {
+      padding: 60px 0;
+    }
+
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    &__heading {
+      margin-bottom: 80px;
+    }
+
+    &__wrapper {
+      width: auto;
+      display: grid;
+      gap: 50px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      justify-items: center;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    & {
+      background: url(../img/better-mobile-bg.jpg) no-repeat center / cover;
+    }
+
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    &__heading {
+      margin-bottom: 40px;
+    }
+  }
 }
 
 // animations
