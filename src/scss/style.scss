@@ -2939,6 +2939,101 @@ input {
       }
     }
   }
+
+  @media screen and (max-width: 1050px) {
+    &__top {
+      &-info {
+        font-size: 16px;
+      }
+
+      &-social {
+        a {
+          width: 35px;
+          height: 35px;
+
+          svg {
+            height: 15px;
+            width: auto;
+          }
+        }
+      }
+    }
+
+    &__info-privacy {
+      font-size: 16px;
+    }
+
+    &__communication {
+      &-name,
+      &-text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 950px) {
+    &__menu ul {
+      flex-wrap: wrap;
+      gap: 10px 20px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    &__top,
+    &__info {
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+      font-size: 14px;
+    }
+
+    &__info {
+      margin-bottom: 20px;
+    }
+
+    &__menu-devider {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    &__communication {
+      &-name,
+      &-text {
+        font-size: 14px;
+      }
+    }
+
+    &__info-privacy {
+      font-size: 14px;
+    }
+
+    &__menu ul {
+      flex-direction: column;
+      align-items: flex-start;
+
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 390px) {
+    &__communication-names {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__communication-texts {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__communication-text:last-child {
+      margin-top: 20px;
+    }
+  }
 }
 
 // animations
