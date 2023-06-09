@@ -49,6 +49,11 @@ a {
   cursor: pointer;
 }
 
+textarea,
+input {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .container {
   max-width: 1190px;
   width: 100%;
@@ -2676,6 +2681,91 @@ a {
 
       &-text {
         font-size: 14px;
+      }
+    }
+  }
+}
+
+// order
+.order {
+  padding-bottom: 130px;
+
+  &__title {
+    margin-bottom: 50px;
+  }
+
+  &__form {
+    max-width: 770px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-fields {
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    &-text {
+      max-width: 300px;
+      margin-bottom: 35px;
+    }
+
+    &-address {
+      width: 100%;
+      height: 130px;
+      padding: 20px;
+      display: block;
+      border: 1px solid var(--gray-border);
+      box-shadow: -5px 5px 10px rgba(230, 230, 230, 0.2), 5px -5px 10px rgba(230, 230, 230, 0.2),
+        -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(230, 230, 230, 0.9),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(230, 230, 230, 0.5);
+      border-radius: 10px;
+      resize: none;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .default__form-field {
+      max-width: 370px;
+    }
+
+    &-kits {
+      width: 100%;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__kit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &-controllers {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &-increment,
+    &-decrement {
+      padding: 0;
+      border: none;
+      background: transparent;
+
+      svg path {
+        transition: var(--transition);
+      }
+
+      &:hover svg path {
+        fill: var(--gray--light);
       }
     }
   }

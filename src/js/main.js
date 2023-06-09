@@ -110,3 +110,41 @@ const reviewsSlider = new Swiper('.reviews__slider', {
     prevEl: '.reviews__slider-prev',
   },
 });
+
+// order kits (counters)
+const kitsIncrements = document.querySelectorAll('.order__kit-increment');
+const kitsDecrements = document.querySelectorAll('.order__kit-decrement');
+
+kitsIncrements.forEach((increment) => {
+  increment.addEventListener('click', (event) => incrementHandler(event, increment));
+});
+
+kitsDecrements.forEach((decrement) => {
+  decrement.addEventListener('click', (event) => decrementHandler(event, decrement));
+});
+
+function incrementHandler(event, increment) {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+
+  changeAmountOfKit(1, increment);
+}
+
+function decrementHandler(event, decrement) {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+
+  changeAmountOfKit(-1, decrement);
+}
+
+function changeAmountOfKit(amount, child) {
+  const currentKit = child.parentElement.parentElement;
+  const currentAmountElement = currentKit.querySelector('.order__kit-amount');
+  const currentAmount = +currentAmountElement.innerText;
+
+  if (amount > 0) {
+    if (currentAmount >= 0) currentAmountElement.innerText = currentAmount + amount;
+  } else {
+    if (currentAmount > 0) currentAmountElement.innerText = currentAmount + amount;
+  }
+}
