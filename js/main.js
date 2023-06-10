@@ -1,4 +1,56 @@
-const openMobileNavigationButton=document.querySelector(".header__burger"),closeMobileNavigationButton=document.querySelector(".header__burger-close"),mobileNavigation=document.querySelector(".header__burger-menu");function openMobileNavigationHandler(){mobileNavigation.classList.remove("hide"),mobileNavigation.classList.add("open"),document.body.classList.add("navigation-open")}function hideMobileNavigationHandler(){mobileNavigation.classList.add("hide"),setTimeout(()=>{mobileNavigation.classList.remove("open"),document.body.classList.remove("navigation-open")},100)}openMobileNavigationButton.addEventListener("click",openMobileNavigationHandler),closeMobileNavigationButton.addEventListener("click",hideMobileNavigationHandler);const swiper=new Swiper(".stop__slider",{direction:"horizontal",loop:!0,slidesPerView:1,spaceBetween:20,pagination:{el:".stop__slider-pagination.swiper-pagination",clickable:!0,renderBullet:function(){return'<span class="stop__slider-bullet swiper-pagination-bullet"></span>'}},navigation:{nextEl:".stop__slider-next",prevEl:".stop__slider-prev"}}),progressTabsControls=document.querySelectorAll(".progress__tabs-controls button"),progressTabsContent=document.querySelector(".progress__tabs-content"),PROGRESS_TABS_INFO=[{text:"Вы прекраснее с каждым днём - и окружающие это видят!",url:"./img/progress-1.png",alt:"кривая осанка"},{text:"Улучшается самочувствие и общий тонус организма",url:"./img/progress-2.png",alt:"осанка улучшилась"},{text:"Вы выглядите уверенной и привлекательной",url:"./img/progress-3.png",alt:"прямая осанка"},];function changeProgressContentHandler(e){progressTabsControls.forEach(e=>e.classList.remove("active")),progressTabsControls[e].classList.add("active"),progressTabsContent.innerHTML=`<img
+const openMobileNavigationButton = document.querySelector('.header__burger'),
+  closeMobileNavigationButton = document.querySelector('.header__burger-close'),
+  mobileNavigation = document.querySelector('.header__burger-menu');
+function openMobileNavigationHandler() {
+  mobileNavigation.classList.remove('hide'),
+    mobileNavigation.classList.add('open'),
+    document.body.classList.add('navigation-open');
+}
+function hideMobileNavigationHandler() {
+  mobileNavigation.classList.add('hide'),
+    setTimeout(() => {
+      mobileNavigation.classList.remove('open'), document.body.classList.remove('navigation-open');
+    }, 100);
+}
+openMobileNavigationButton.addEventListener('click', openMobileNavigationHandler),
+  closeMobileNavigationButton.addEventListener('click', hideMobileNavigationHandler);
+const swiper = new Swiper('.stop__slider', {
+    direction: 'horizontal',
+    loop: !0,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+      el: '.stop__slider-pagination.swiper-pagination',
+      clickable: !0,
+      renderBullet: function () {
+        return '<span class="stop__slider-bullet swiper-pagination-bullet"></span>';
+      },
+    },
+    navigation: { nextEl: '.stop__slider-next', prevEl: '.stop__slider-prev' },
+  }),
+  progressTabsControls = document.querySelectorAll('.progress__tabs-controls button'),
+  progressTabsContent = document.querySelector('.progress__tabs-content'),
+  PROGRESS_TABS_INFO = [
+    {
+      text: 'Вы прекраснее с каждым днём - и окружающие это видят!',
+      url: './img/progress-1.png',
+      alt: 'кривая осанка',
+    },
+    {
+      text: 'Улучшается самочувствие и общий тонус организма',
+      url: './img/progress-2.png',
+      alt: 'осанка улучшилась',
+    },
+    {
+      text: 'Вы выглядите уверенной и привлекательной',
+      url: './img/progress-3.png',
+      alt: 'прямая осанка',
+    },
+  ];
+function changeProgressContentHandler(e) {
+  progressTabsControls.forEach((e) => e.classList.remove('active')),
+    progressTabsControls[e].classList.add('active'),
+    (progressTabsContent.innerHTML = `<img
                 src="${PROGRESS_TABS_INFO[e].url}" alt="${PROGRESS_TABS_INFO[e].alt}" />
               <p>
                 <svg
@@ -18,4 +70,85 @@ const openMobileNavigationButton=document.querySelector(".header__burger"),close
                   />
                 </svg>
                 ${PROGRESS_TABS_INFO[e].text}
-              </p>`}changeProgressContentHandler(0),progressTabsControls.forEach((e,n)=>{e.addEventListener("click",()=>changeProgressContentHandler(n))});const reviewsSlider=new Swiper(".reviews__slider",{direction:"horizontal",loop:!0,slidesPerView:1,spaceBetween:50,pagination:{el:".reviews__slider-pagination.swiper-pagination",clickable:!0,renderBullet:function(){return'<span class="reviews__slider-bullet swiper-pagination-bullet"></span>'}},navigation:{nextEl:".reviews__slider-next",prevEl:".reviews__slider-prev"}}),kitsIncrements=document.querySelectorAll(".order__kit-increment"),kitsDecrements=document.querySelectorAll(".order__kit-decrement");function incrementHandler(e,n){e.preventDefault(),e.stopImmediatePropagation(),changeAmountOfKit(1,n)}function decrementHandler(e,n){e.preventDefault(),e.stopImmediatePropagation(),changeAmountOfKit(-1,n)}function changeAmountOfKit(e,n){let t=n.parentElement.parentElement.querySelector(".order__kit-amount"),i=+t.innerText;e>0?i>=0&&(t.innerText=i+e):i>0&&(t.innerText=i+e)}kitsIncrements.forEach(e=>{e.addEventListener("click",n=>incrementHandler(n,e))}),kitsDecrements.forEach(e=>{e.addEventListener("click",n=>decrementHandler(n,e))}),document.querySelectorAll(".js-scroll").forEach(e=>{e.addEventListener("click",function(){let e=this.getAttribute("href");mobileNavigation.classList.contains("open")&&hideMobileNavigationHandler(),function(e,n){let t=document.querySelector(".header").clientHeight,i=document.querySelector(e).getBoundingClientRect().top-t,r=window.scrollY,o=null,s=function(e){var t,l,a;null===o&&(o=e);let c=e-o,d=(t=c,l=r,a=i,(t/=n/2)<1?a/2*t*t+l:-a/2*(--t*(t-2)-1)+l);window.scrollTo(0,d),c<n&&requestAnimationFrame(s)};requestAnimationFrame(s)}(e,1e3)})}),document.addEventListener("DOMContentLoaded",function(){let e=[].slice.call(document.querySelectorAll("img.lazy"));if("IntersectionObserver"in window){let n=new IntersectionObserver(function(e,t){e.forEach(function(e){if(e.isIntersecting){let t=e.target;t.src=t.dataset.src,t.srcset=t.dataset.srcset,t.classList.remove("lazy"),n.unobserve(t)}})});e.forEach(function(e){n.observe(e)})}});
+              </p>`);
+}
+changeProgressContentHandler(0),
+  progressTabsControls.forEach((e, n) => {
+    e.addEventListener('click', () => changeProgressContentHandler(n));
+  });
+const reviewsSlider = new Swiper('.reviews__slider', {
+    direction: 'horizontal',
+    loop: !0,
+    slidesPerView: 1,
+    spaceBetween: 50,
+    pagination: {
+      el: '.reviews__slider-pagination.swiper-pagination',
+      clickable: !0,
+      renderBullet: function () {
+        return '<span class="reviews__slider-bullet swiper-pagination-bullet"></span>';
+      },
+    },
+    navigation: { nextEl: '.reviews__slider-next', prevEl: '.reviews__slider-prev' },
+  }),
+  kitsIncrements = document.querySelectorAll('.order__kit-increment'),
+  kitsDecrements = document.querySelectorAll('.order__kit-decrement');
+function incrementHandler(e, n) {
+  e.preventDefault(), e.stopImmediatePropagation(), changeAmountOfKit(1, n);
+}
+function decrementHandler(e, n) {
+  e.preventDefault(), e.stopImmediatePropagation(), changeAmountOfKit(-1, n);
+}
+function changeAmountOfKit(e, n) {
+  let t = n.parentElement.parentElement.querySelector('.order__kit-amount'),
+    i = +t.innerText;
+  e > 0 ? i >= 0 && (t.innerText = i + e) : i > 0 && (t.innerText = i + e);
+}
+kitsIncrements.forEach((e) => {
+  e.addEventListener('click', (n) => incrementHandler(n, e));
+}),
+  kitsDecrements.forEach((e) => {
+    e.addEventListener('click', (n) => decrementHandler(n, e));
+  }),
+  document.querySelectorAll('.js-scroll').forEach((e) => {
+    e.addEventListener('click', function () {
+      let e = this.getAttribute('href');
+      mobileNavigation.classList.contains('open') && hideMobileNavigationHandler(),
+        (function (e, n) {
+          let t = document.querySelector('.header').clientHeight,
+            i = document.querySelector(e).getBoundingClientRect().top - t,
+            r = window.scrollY,
+            o = null,
+            s = function (e) {
+              var t, l, a;
+              null === o && (o = e);
+              let c = e - o,
+                d =
+                  ((t = c),
+                  (l = r),
+                  (a = i),
+                  (t /= n / 2) < 1 ? (a / 2) * t * t + l : (-a / 2) * (--t * (t - 2) - 1) + l);
+              window.scrollTo(0, d), c < n && requestAnimationFrame(s);
+            };
+          requestAnimationFrame(s);
+        })(e, 1e3);
+    });
+  }),
+  document.addEventListener('DOMContentLoaded', function () {
+    let e = [].slice.call(document.querySelectorAll('img.lazy'));
+    if ('IntersectionObserver' in window) {
+      let n = new IntersectionObserver(function (e, t) {
+        e.forEach(function (e) {
+          if (e.isIntersecting) {
+            let t = e.target;
+            (t.src = t.dataset.src),
+              (t.srcset = t.dataset.srcset),
+              t.classList.remove('lazy'),
+              n.unobserve(t);
+          }
+        });
+      });
+      e.forEach(function (e) {
+        n.observe(e);
+      });
+    }
+  });
