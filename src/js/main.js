@@ -148,3 +148,69 @@ function changeAmountOfKit(amount, child) {
     if (currentAmount > 0) currentAmountElement.innerText = currentAmount + amount;
   }
 }
+
+// scroll
+
+(function () {
+  const smoothScroll = function (targetEl, duration) {
+    const headerElHeight = document.querySelector('.header').clientHeight;
+    let target = document.querySelector(targetEl);
+    let targetPosition = target.getBoundingClientRect().top - headerElHeight;
+    let startPosition = window.scrollY;
+    let startTime = null;
+
+    const ease = function (t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    };
+
+    const animation = function (currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = ease(timeElapsed, startPosition, targetPosition, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    };
+    requestAnimationFrame(animation);
+  };
+
+  const scrollTo = function () {
+    const links = document.querySelectorAll('.js-scroll');
+    links.forEach((each) => {
+      each.addEventListener('click', function () {
+        const currentTarget = this.getAttribute('href');
+        if (mobileNavigation.classList.contains('open')) {
+          hideMobileNavigationHandler();
+        }
+        smoothScroll(currentTarget, 1000);
+      });
+    });
+  };
+  scrollTo();
+})();
+
+// lazy loading
+
+document.addEventListener('DOMContentLoaded', function () {
+  const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+
+  if ('IntersectionObserver' in window) {
+    let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target;
+          lazyImage.src = lazyImage.dataset.src;
+          lazyImage.srcset = lazyImage.dataset.srcset;
+          lazyImage.classList.remove('lazy');
+          lazyImageObserver.unobserve(lazyImage);
+        }
+      });
+    });
+
+    lazyImages.forEach(function (lazyImage) {
+      lazyImageObserver.observe(lazyImage);
+    });
+  }
+});

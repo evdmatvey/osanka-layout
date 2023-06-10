@@ -27,11 +27,11 @@ const css = () => {
     .pipe(size({ title: 'CSS до' }))
     .pipe(shorthand())
     .pipe(groupCssMediaQueries())
-    .pipe(dest(path.css.dest, { sourcemaps: app.isDev }))
+    .pipe(dest(path.css.dest))
     .pipe(csso())
     .pipe(size({ title: 'CSS после' }))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(dest(path.css.dest, { sourcemaps: app.isDev }));
+    .pipe(dest(path.css.dest));
 };
 
 module.exports = css;
